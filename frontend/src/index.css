@@ -1,0 +1,97 @@
+/* 🌿 TAILWIND BASE IMPORTS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🧠 GLOBAL BASE STYLES */
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+  }
+}
+
+/* 🧩 COMPONENTS (Custom Classes) */
+@layer components {
+  /* ✅ Common Button */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-green-700 border border-green-500 hover:bg-green-50;
+  }
+
+  /* ✅ Toast notification smoothness */
+  .hot-toast {
+    @apply rounded-xl shadow-lg px-4 py-3 font-medium;
+  }
+}
+
+/* 🍽 MENU CARD STYLES */
+.menu-card {
+  @apply rounded-2xl overflow-hidden shadow-md transition-all duration-300 ease-in-out;
+  transform: translateY(0);
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.menu-card img {
+  @apply transition-transform duration-300;
+}
+
+.menu-card:hover img {
+  transform: scale(1.05);
+}
+
+/* 📦 GRID LAYOUT REFINEMENT */
+.menu-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10;
+}
+
+/* 🌙 DARK MODE TRANSITION FIX */
+html.dark {
+  color-scheme: dark;
+}
+
+/* 🧩 FIX TEXT CUTTING AND OVERFLOW */
+.menu-card h2,
+.menu-card p,
+.menu-card span {
+  @apply break-words whitespace-normal;
+}
+
+/* 🪶 SMOOTH SCROLLING + TRANSITION */
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 💬 TINY UI POLISH */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.5);
+}
